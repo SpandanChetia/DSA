@@ -61,7 +61,7 @@ public:
         if (heap.empty()) {
             throw runtime_error("MinHeap is Empty!!");
         }
-        return heap.front();
+        return heap[0];
     }
 
     bool empty() const {

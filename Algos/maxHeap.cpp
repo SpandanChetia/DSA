@@ -59,7 +59,7 @@ class MaxHeap {
         if (heap.empty()) {
             throw runtime_error("MaxHeap is Empty!!");
         }
-        return heap.front();
+        return heap[0];
     }
 
     bool empty() const{
