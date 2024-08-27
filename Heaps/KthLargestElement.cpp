@@ -155,5 +155,5 @@ int main(){
     Kthlargest sol;
     vector<int>nums = {2, 3, 4, 5, 1, 6};
     int k = 4;
-    cout << sol.betterPQMethod(nums, k);
+    cout << sol.quickSelectMethod(nums, k);
 }
