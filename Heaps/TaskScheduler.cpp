@@ -38,5 +38,11 @@ int main(){
     TaskScheduler ts;
     vector<char>nums = {'A','A','A','B','B','B'};
     int n = 2;
+    auto start = chrono::high_resolution_clock::now();
     cout << ts.minimumTime(nums, n);
+    auto end = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+
+    // Print the runtime in milliseconds
+    cout << "Execution time: " << duration << " ms" << endl;
 }
