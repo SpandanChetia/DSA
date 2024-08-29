@@ -52,3 +52,37 @@ ll countSubarraysSumK(vector<int>&nums, int k){
     }
     return ans;
 }
+
+vector<pair<int,int>>SubarraysSumK(vector<int>&nums, int k){
+    vector<pair<int,int>>ans;
+    unordered_map<int,vector<int>>mp;
+    mp[0].push_back(-1);
+    int sum=0;
+    for(int i=0; i<nums.size(); i++){
+        sum += nums[i];
+        if(mp.count(sum-k)){
+            for(auto& s : mp[sum-k]){
+                ans.push_back({s+1, i});
+            }
+        }
+        mp[sum].push_back(i);
+    }
+    return ans;
+}
+
+int longestSubarraySumK(vector<int>&nums, int k){
+    int maxi=0;
+    int sum=0;
+    unordered_map<int, int>mp;
+    mp[0] = -1;
+    for(int i=0; i<nums.size(); i++){
+        sum += nums[i];
+        if(mp.count(sum-k)){
+            maxi = max(maxi, i-mp[sum-k]);
+        }
+        if(!mp.count(sum-k)){
+            mp[sum-k] = i;
+        }
+    }
+    return maxi;
+}
